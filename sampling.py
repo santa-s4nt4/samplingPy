@@ -16,13 +16,14 @@ stream = audio.open(format=FORMAT, channels=CHANNELS,
                     input_device_index=iDeviceIndex,
                     frames_per_buffer=CHUNK)
 
-print('recording...')
+input('Press Any key to record for 5 seconds. Please tell me your name.')
+print('Recording...')
 frames = []
 for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
     data = stream.read(CHUNK)
     frames.append(data)
 
-print('finished recording!')
+print('Finished recording!')
 
 stream.stop_stream()
 stream.close()
