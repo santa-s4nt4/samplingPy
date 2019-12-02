@@ -1,12 +1,15 @@
 import pyaudio
 import wave
-from pythonosc import osc_server
-from pythonosc.dispatcher import Dispatcher
 
+'''
+iAudio = pyaudio.PyAudio()
+for x in range(0, iAudio.get_device_count()): 
+    print(iAudio.get_device_info_by_index(x))
+'''
 
 RECORD_SECONDS = 5
 WAVE_OUTPUT_FILENAME = 'sample.wav'
-iDeviceIndex = 0
+iDeviceIndex = 1
 
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
