@@ -1,5 +1,7 @@
 import pyaudio
 import wave
+from pythonosc import osc_server
+from pythonosc.dispatcher import Dispatcher
 
 RECORD_SECONDS = 5
 WAVE_OUTPUT_FILENAME = 'sample.wav'
