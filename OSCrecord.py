@@ -7,7 +7,6 @@ from pythonosc.dispatcher import Dispatcher
 iAudio = pyaudio.PyAudio()
 for x in range(0, iAudio.get_device_count()): 
     print(iAudio.get_device_info_by_index(x))
-'''
 
 RECORD_SECONDS = 5
 WAVE_OUTPUT_FILENAME = 'sample.wav'
@@ -18,10 +17,14 @@ CHANNELS = 1
 RATE = 44100
 CHUNK = 2 ** 11
 audio = pyaudio.PyAudio()
+'''
+
+print('Record System')
 
 
-def twHandler(unsedAddr, osc):
+def recordOSC(osc):
     print(osc)
+    '''
     stream = audio.open(format=FORMAT, channels=CHANNELS,
                         rate=RATE, input=True,
                         input_device_index=iDeviceIndex,
@@ -44,13 +47,14 @@ def twHandler(unsedAddr, osc):
     waveFile.setframerate(RATE)
     waveFile.writeframes(b''.join(frames))
     waveFile.close()
+    '''
 
 
 IP = '192.168.1.7'
 PORT = 10000
 
 dispatcher = Dispatcher()
-dispatcher.map('/tw', twHandler)
+dispatcher.map('/osc', recordOSC)
 
 server = osc_server.ThreadingOSCUDPServer((IP, PORT), dispatcher)
 print(server.server_address)
